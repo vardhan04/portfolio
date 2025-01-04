@@ -2,7 +2,8 @@ import React, {useContext} from "react";
 import {Fade} from "react-reveal";
 import emoji from "react-easy-emoji";
 import "./Greeting.scss";
-import landingPerson from "../../assets/lottie/landingPerson";
+import landingPerson from "../../assets/lottie/dev.json";
+//import landingPerson from "../../assets/lottie/landingPerson";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
@@ -41,12 +42,18 @@ export default function Greeting() {
               <div className="button-greeting-div">
                 <Button text="Contact me" href="#contact" />
                 {greeting.resumeLink && (
+                  // <a
+                  //   href={require("./resume.pdf")}
+                  //   download="Resume.pdf"
+                  //   className="download-link-button"
+                  // >
                   <a
-                    href={require("./resume.pdf")}
-                    download="Resume.pdf"
-                    className="download-link-button"
-                  >
-                    <Button text="Download my resume" />
+                  href={greeting.resumeLink} // Use the resume link from the `greeting` object
+                  target="_blank" // Open in a new tab
+                  rel="noopener noreferrer" // Security best practice for opening in a new tab
+                  className="download-link-button"
+                >
+                    <Button text="My Resume" />
                   </a>
                 )}
               </div>
